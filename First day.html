@@ -1,70 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Final Examination</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>League University</title>
 
-    <!-- External CSS -->
-    <link rel="stylesheet" href="style.css">
+  <!-- Icons & Fonts -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Goblin+One&display=swap" rel="stylesheet" />
 
-    <!-- Icon Libraries -->
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Goblin+One&display=swap" rel="stylesheet">
+  <!-- Loader Styles -->
+  <style>
+    /* [unchanged loader styles] */
+  </style>
 </head>
+<style>
+    body {
+      margin: 0;
+      font-family: "Goblin One", serif;
+      background-color: #000;
+      overflow-x: hidden;
+    }
 
-<body>
-    <div class="video-container">
-        
+    #loader-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: blue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .loader,
+    .loader span {
+      width: 10em;
+      height: 10em;
+      border: 0.25em solid white;
+      font-size: 10px;
+      border-radius: 1em;
+      position: absolute;
+      mix-blend-mode: screen;
+    }
+
+    .loader {
+      background-color: gold;
+      animation: rotating 2s linear infinite;
+      position: relative;
+    }
+
+    @keyframes rotating {
+      to {
+        transform: rotate(1turn);
+      }
+    }
+
+    .loader span {
+      animation: de-rotating 4s linear infinite;
+    }
+
+    @keyframes de-rotating {
+      0%, 100% {
+        transform: rotate(0deg) scale(0.5);
+      }
+      50% {
+        transform: rotate(-180deg) scale(1.2);
+      }
+    }
+
+    .loader span:nth-child(1) { top: 5em; left: 5em; background-color: pink; }
+    .loader span:nth-child(2) { top: -5em; left: 5em; background-color: brown; }
+    .loader span:nth-child(3) { top: 5em; left: -5em; background-color: violet; }
+    .loader span:nth-child(4) { top: -5em; left: -5em; background-color: chocolate; }
+  </style>
+</head>
+<body id="top">
+  <!-- 🔄 Loader Screen -->
+  <div id="loader-wrapper">
+    <div class="loader">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
-    
+  </div>
+
+  <!-- ✅ Main Page Content -->
+  <div id="main-content">
+    <!-- Header -->
     <header>
-        
-        <a href="#" class="logo">League University</a>
-        <ul class="navlist">
-            
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Gameplay</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Setting</a></li>
-        </ul>
-        
-        <div class="bx bx-menu" id="menu-icon">
-            
-        </div>
-       
+      <a href="#" class="logo">
+        <img src="img/League University Logo.jpg" alt="League University Logo" />
+      </a>
+      <ul class="navlist">
+        <li><a href="#">Home</a></li>
+        <li><a href="https://www.youtube.com/watch?v=Qy_6LXW-enM" target="_blank">Gameplay</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Setting</a></li>
+      </ul>
+      <div class="bx bx-menu" id="menu-icon"></div>
     </header>
-<video autoplay muted width="100%" controls class="">
-    
-    <source src="video/Elementalist Lux Animated Splash.mp4" type="video/mp4" >
-</video>
 
-    <section class="hero">
-        <div class="hero-text">
-            <video class="video-container" src="video/" ></video>
-             <div class="hero-img">
-            <img src="img/League University Logo.jpg" alt="Exam illustration">
-        </div>
-          <h5>#1 LEAGUE OF LEGEND PLAYER</h5>
-            <h4>MVP OF THE MONTH</h4>
-            <h1>Jose Fernan Miguela</h1>
-            <p>TOP AND JUNGLER MAIN</p>
-            <a href="#">Play Now!</a>
-            <a href="#" class="ctaa"><i class="ri-play-fill"></i>highlights</a>
-        </div>
+    <!-- Background Video -->
+    <video autoplay loop controls>
+      <source src="video/lux.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
 
+    <!-- Hero Section -->
+    <section class="hero" id="hero-section">
+      <div class="hero-text">
         <div class="hero-img">
-            <img src="img/fbe572e1faefa97388243a952acfbe93.jpg" alt="Exam illustration">
+          <img src="img/League University Logo.jpg" alt="League University Logo" />
         </div>
-        
-        
+
+        <h5>LEAGUE OF LEGENDS CHAMPION</h5>
+
+        <a href="https://www.leagueoflegends.com/en-ph/champions/yasuo/" target="_blank">
+          <i class="ri-play-fill"> Yasuo </i>
+        </a>
+
+        <p>ROLE: TOP LANER</p>
+
+        <div>
+          <video autoplay muted controls>
+            <source src="video/Yasuo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <a href="https://www.youtube.com/watch?v=aKm944xVN8Y" target="_blank">
+          <i class="ri-play-fill"></i> Highlights
+        </a>
+      </div>
+
+      <div class="hero-img">
+        <img src="img/fbe572e1faefa97388243a952acfbe93.jpg" alt="Yasuo Splash Art" class="slide-image" />
+      </div>
     </section>
 
-    <script src="js/script.js"></script>
+    <!-- Social Media -->
+    <h6>MY SOCIAL MEDIA ACCOUNTS</h6>
+
+    <div class="social-icons">
+      <div class="icons">
+        <a href="https://www.youtube.com/@RobloxRandomContent05" target="_blank"><i class="ri-youtube-line"></i></a>
+      </div>
+      <div class="icons1">
+        <a href="https://www.facebook.com/profile.php?id=61559255027614" target="_blank"><i class="ri-facebook-line"></i></a>
+      </div>
+      <div class="icons2">
+        <a href="https://www.tiktok.com/@imnotkuyajose" target="_blank"><i class="ri-tiktok-line"></i></a>
+      </div>
+      <div class="icons3">
+        <a href="https://www.roblox.com/users/5357981911/profile" target="_blank"><i class="ri-gamepad-line"></i></a>
+      </div>
+      <div class="icons4">
+        <a href="https://www.tiktok.com/@bnbsoul5" target="_blank"><i class="ri-tiktok-line"></i></a>
+      </div>
+    </div>
+
+    <!-- Scroll Buttons -->
+    <div class="scroll-down">
+      <a href="#hero-section"><i class="ri-arrow-down-s-fill"></i></a>
+    </div>
+    <div class="scroll-upi">
+      <a href="#top"><i class="ri-arrow-up-s-fill"></i></a>
+    </div>
+  </div>
+    <!-- Hero Section -->
+    <section class="hero" id="hero-section">
+      <div class="hero-text">
+        <div class="hero-img">
+          <img src="img/League University Logo.jpg" alt="League University Logo" />
+        </div>
+
+        <h5>LEAGUE OF LEGENDS CHAMPION</h5>
+
+        <a href="https://www.leagueoflegends.com/en-ph/champions/yasuo/" target="_blank">
+          <i class="ri-play-fill"> Sett </i>
+        </a>
+
+        <p>ROLE: TOP LANER</p>
+
+        <div>
+          <video autoplay muted controls>
+            <source src="video/set.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <a href="https://www.youtube.com/watch?v=o2clLtpd4Co" target="_blank">
+          <i class="ri-play-fill"></i> Highlights
+        </a>
+      </div>
+      <div class="hero-img">
+        <img src="img/sett.jpg" alt="Sett SplastArt"class="slide-image" />
+      </div>
+    </section>
+     <section class="hero" id="hero-section">
+      <div class="hero-text">
+        <div class="hero-img">
+          <img src="img/League University Logo.jpg" alt="League University Logo" />
+        </div>
+
+        <h5>LEAGUE OF LEGENDS CHAMPION</h5>
+
+        <a href="https://www.leagueoflegends.com/en-ph/champions/garen/" target="_blank">
+          <i class="ri-play-fill"> Garen </i>
+        </a>
+
+        <p>ROLE: TOP LANER</p>
+
+        <div>
+          <video autoplay muted controls>
+            <source src="video/garen.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <a href="https://www.youtube.com/watch?v=iepCcj2kKVc&t=2s" target="_blank">
+          <i class="ri-play-fill"></i> Highlights
+        </a>
+      </div>
+
+      <div class="hero-img">
+        <img src="img/Garen.jpg" alt="garen SplastArt"class="slide-image" />
+      </div>
+    </section>
+     <section class="hero" id="hero-section">
+      <div class="hero-text">
+        <div class="hero-img">
+          <img src="img/League University Logo.jpg" alt="League University Logo" />
+        </div>
+
+        <h5>LEAGUE OF LEGENDS CHAMPION</h5>
+
+        <a href="https://www.leagueoflegends.com/en-ph/champions/ashe/" target="_blank">
+          <i class="ri-play-fill"> Ashe</i>
+        </a>
+        <p>ROLE: MARKSMAN </p>
+
+        <div>
+          <video autoplay muted controls>
+            <source src="video/ashe.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <a href="https://www.leagueoflegends.com/en-ph/" target="_blank">Play Now!</a>
+        <a href="https://www.youtube.com/watch?v=rFQC2WMrqS8&t=2s" target="_blank">
+          <i class="ri-play-fill"></i> Highlights
+        </a>
+      </div>
+
+      <div class="hero-img">
+        <img src="img/ashe.jpg" alt="ashe SplastArt"class="slide-image" />
+      </div>
+    </section>
+
+
+  <!-- External Libraries -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+
+  <!-- Scripts -->
+  <script>
+    // Loader Fade Out
+    window.addEventListener("load", function () {
+      const loader = document.getElementById("loader-wrapper");
+      const content = document.getElementById("main-content");
+
+      loader.style.opacity = 1;
+      const fadeOut = setInterval(() => {
+        loader.style.opacity -= 0.05;
+        if (loader.style.opacity <= 0) {
+          clearInterval(fadeOut);
+          loader.style.display = "none";
+          content.style.display = "block";
+        }
+      }, 50);
+    });
+
+    // Menu Toggle + ScrollReveal
+    document.addEventListener('DOMContentLoaded', () => {
+      const menu = document.querySelector('#menu-icon');
+      const navlist = document.querySelector('.navlist');
+
+      if (menu && navlist) {
+        menu.addEventListener('click', () => {
+          menu.classList.toggle('bx-x');
+          navlist.classList.toggle('open');
+        });
+      }
+
+      const sr = ScrollReveal({
+        distance: '65px',
+        duration: 2600,
+        delay: 450,
+        reset: true
+      });
+
+      sr.reveal('.hero-text', { delay: 200, origin: 'top' });
+         sr.reveal('.hero-img',{ delay: 450, origin: 'top' });
+         sr.reveal('.icons',{ delay: 500, origin: 'left'});
+         sr.reveal('.icons1', { delay: 500, origin: 'left'});
+         sr.reveal('.icons2',{ delay: 500, origin: 'left'});
+         sr.reveal('.icons3',{ delay: 500, origin: 'left'});
+         sr.reveal('.icons4',{ delay: 500, origin: 'left'});
+    });
+
+    // Scroll-Up Button Toggle
+    document.addEventListener("DOMContentLoaded", function () {
+      const scrollUpBtn = document.querySelector(".scroll-upi");
+      scrollUpBtn.style.display = "none";
+
+      window.addEventListener("scroll", () => {
+        scrollUpBtn.style.display = window.scrollY > 300 ? "block" : "none";
+      });
+    });
+  </script>
+
+  <!-- Your Custom JS File -->
+  <script src="js/script.js"></script>
+
+</body>
 </body>
 </html>
