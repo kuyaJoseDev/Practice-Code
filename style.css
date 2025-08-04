@@ -1,4 +1,5 @@
-/* Base Reset */
+
+
 * {
   margin: 0;
   padding: 0;
@@ -7,6 +8,7 @@
   list-style: none;
   text-decoration: none;
 }
+
 
 video {
   display: block;
@@ -23,7 +25,7 @@ header {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   padding: 20px 1%;
   background: transparent;
   color: chartreuse;
@@ -35,6 +37,41 @@ header:hover {
   border: 1px solid white;
   transform: translateX(8px);
 }
+.settings-dropdown {
+  position: relative;
+}
+
+.settings-dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #111;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1000;
+  border-radius: 5px;
+}
+
+.settings-dropdown .dropdown-content li {
+  display: block;
+}
+
+.settings-dropdown .dropdown-content a {
+  color: white;
+  padding: 10px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.settings-dropdown .dropdown-content a:hover {
+  background-color: #333;
+}
+
+.settings-dropdown:hover .dropdown-content {
+  display: block;
+}
+
 
 .logo {
   font-size: 30px;
@@ -393,6 +430,7 @@ h6:hover {
 }
 
 
+
 @media (max-width: 1024px) {
   #menu-icon {
     display: block;
@@ -693,6 +731,28 @@ h6:hover {
 .scroll-upi i:hover {
   transform: translateY(-5px);
 }
+.pagination {
+  display: inline-block;
+  padding: 10px;
+}
+
+.pagination a {
+  color: rgb(246, 240, 240);
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: 0.3s;
+  border: 1px solid #ddd;
+  margin: 0 4px;
+  border-radius: 5px;
+}
+
+.pagination a:hover {
+  background-color: #3498db;
+  color: white;
+  border: 1px solid #3498db;
+}
+
 
 /* Responsive */
 @media (max-width: 1024px) {
@@ -822,3 +882,4 @@ video {
   width: 100%;
   height: auto;
 }
+
